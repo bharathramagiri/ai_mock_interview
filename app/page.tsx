@@ -1,7 +1,11 @@
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export default function LandingPage() {
+  // Check directly on the server if the user is logged in!
+  const { userId } = auth();
+
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col relative overflow-x-hidden select-none">
       
@@ -24,25 +28,30 @@ export default function LandingPage() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
-                Talent Login
-              </button>
-            </SignInButton>
-            <SignInButton mode="modal">
-              <button className="bg-gray-950 text-white text-sm font-semibold rounded-full px-5 py-2 hover:bg-gray-800 transition">
-                Try for free
-              </button>
-            </SignInButton>
-          </SignedOut>
           
-          <SignedIn>
-            <Link href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
-              Go to Dashboard
-            </Link>
-            <UserButton />
-          </SignedIn>
+          {userId ? (
+            /* SHOW THIS IF LOGGED IN */
+            <>
+              <Link href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
+                Go to Dashboard
+              </Link>
+              <UserButton />
+            </>
+          ) : (
+            /* SHOW THIS IF LOGGED OUT */
+            <>
+              <SignInButton mode="modal">
+                <button className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
+                  Talent Login
+                </button>
+              </SignInButton>
+              <SignInButton mode="modal">
+                <button className="bg-gray-950 text-white text-sm font-semibold rounded-full px-5 py-2 hover:bg-gray-800 transition">
+                  Try for free
+                </button>
+              </SignInButton>
+            </>
+          )}
 
           <div className="flex items-center space-x-1 text-xs font-bold text-gray-500 cursor-pointer">
             <span>EN</span>
@@ -108,10 +117,4 @@ export default function LandingPage() {
 
       {/* Absolute Bottom 3-Steps Dashboard Header Hook */}
       <section className="bg-gray-50 py-10 border-t border-gray-100 text-center">
-        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-800">
-          Unlock Your Interview Success in 3 Steps!
-        </h3>
-      </section>
-    </div>
-  );
-}
+        <h3 className="text-2xl md:text-3xl font-extrabold text-
