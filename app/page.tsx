@@ -3,13 +3,11 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 
 export default function LandingPage() {
-  // Check directly on the server if the user is logged in!
   const { userId } = auth();
 
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col relative overflow-x-hidden select-none">
       
-      {/* Navigation Header */}
       <header className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-gray-100">
         <div className="text-2xl font-black tracking-tight text-gray-900 cursor-pointer">
           interview.co
@@ -30,7 +28,6 @@ export default function LandingPage() {
         <div className="flex items-center space-x-4">
           
           {userId ? (
-            /* SHOW THIS IF LOGGED IN */
             <>
               <Link href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
                 Go to Dashboard
@@ -38,14 +35,13 @@ export default function LandingPage() {
               <UserButton />
             </>
           ) : (
-            /* SHOW THIS IF LOGGED OUT */
             <>
-              <SignInButton mode="modal">
+              <SignInButton forceRedirectUrl="/interview">
                 <button className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
                   Talent Login
                 </button>
               </SignInButton>
-              <SignInButton mode="modal">
+              <SignInButton forceRedirectUrl="/interview">
                 <button className="bg-gray-950 text-white text-sm font-semibold rounded-full px-5 py-2 hover:bg-gray-800 transition">
                   Try for free
                 </button>
@@ -60,10 +56,8 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Content Section */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-16 pb-32">
         
-        {/* Text Left Column */}
         <div>
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#22252a] leading-[1.1] mb-6">
             Mock Interviews to Mastery.<br />Prepare, practice and own the real one.
@@ -79,7 +73,6 @@ export default function LandingPage() {
             >
               Start Now
             </Link>
-            {/* Drawn Arrow Vector */}
             <svg width="55" height="35" viewBox="0 0 76 49" fill="none" className="text-gray-400 stroke-current" strokeWidth="2.5" strokeLinecap="round">
               <path d="M2 39.5C18.5 45.5 49.5 42 68.5 12" />
               <path d="M56 16.5L69.5 10.5L74 24" />
@@ -87,7 +80,6 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Visual Graphic Right Column */}
         <div className="relative flex justify-center items-center">
           <div className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] bg-[#fbbf24] rounded-full -z-10 translate-x-4 translate-y-4"></div>
           
@@ -115,7 +107,6 @@ export default function LandingPage() {
         </div>
       </main>
 
-      {/* Absolute Bottom 3-Steps Dashboard Header Hook */}
       <section className="bg-gray-50 py-10 border-t border-gray-100 text-center">
         <h3 className="text-2xl md:text-3xl font-extrabold text-gray-800">
           Unlock Your Interview Success in 3 Steps!
