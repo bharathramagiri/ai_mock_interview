@@ -117,4 +117,10 @@ export default function LandingPage() {
 
       {/* Absolute Bottom 3-Steps Dashboard Header Hook */}
       <section className="bg-gray-50 py-10 border-t border-gray-100 text-center">
-        <h3 className="text-2xl md:text-3xl font-extrabold text-
+        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-800">
+          Unlock Your Interview Success in 3 Steps!
+        </h3>
+      </section>
+    </div>
+  );
+}
