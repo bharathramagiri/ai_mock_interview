@@ -9,9 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^3.0.83",
+    "@ai-sdk/openai": "^3.0.71",
+    "@clerk/nextjs": "^7.5.5",
+    "@openrouter/ai-sdk-provider": "^2.9.1",
+    "ai": "^6.0.206",
+    "face-api.js": "^0.22.2",
+    "lucide-react": "^1.18.0",
     "next": "16.2.9",
+    "next-auth": "^4.24.14",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "react-webcam": "^7.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
