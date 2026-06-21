@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 
@@ -18,17 +17,17 @@ export default function LandingPage() {
           interview.co
         </div>
         
-        {/* The Left Navigation Links you requested */}
+        {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-10 text-sm font-semibold text-gray-600">
-          <Link href="#" className="hover:text-black transition">Pricing</Link>
-          <div className="flex items-center space-x-1 cursor-pointer hover:text-black transition">
+          <a href="#pricing" className="hover:text-black transition">Pricing</a>
+          <a href="#services" className="flex items-center space-x-1 hover:text-black transition">
             <span>Services</span>
             <span className="text-[10px]">▼</span>
-          </div>
-          <div className="flex items-center space-x-1 cursor-pointer hover:text-black transition">
+          </a>
+          <a href="#resources" className="flex items-center space-x-1 hover:text-black transition">
             <span>Resources</span>
             <span className="text-[10px]">▼</span>
-          </div>
+          </a>
         </nav>
 
         <div className="flex items-center space-x-4">
@@ -36,20 +35,20 @@ export default function LandingPage() {
           {userId ? (
             /* SHOW THIS IF LOGGED IN */
             <>
-              <Link href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
+              <a href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
                 Go to Dashboard
-              </Link>
+              </a>
               <UserButton />
             </>
           ) : (
-            /* SHOW THIS IF LOGGED OUT - Standard links that rely on your Middleware to trigger login! */
+            /* SHOW THIS IF LOGGED OUT - Standard <a> tags force a hard reload, which triggers the Middleware Login! */
             <>
-              <Link href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
+              <a href="/interview" className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition block text-center cursor-pointer">
                 Talent Login
-              </Link>
-              <Link href="/interview" className="bg-gray-950 text-white text-sm font-semibold rounded-full px-5 py-2 hover:bg-gray-800 transition">
+              </a>
+              <a href="/interview" className="bg-gray-950 text-white text-sm font-semibold rounded-full px-5 py-2 hover:bg-gray-800 transition block text-center cursor-pointer">
                 Try for free
-              </Link>
+              </a>
             </>
           )}
 
@@ -73,12 +72,12 @@ export default function LandingPage() {
           </p>
           
           <div className="flex items-center space-x-5">
-            <Link 
+            <a 
               href="/interview" 
-              className="bg-[#f97316] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e06613] transition-all transform hover:scale-[1.02] shadow-lg shadow-orange-500/20"
+              className="bg-[#f97316] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e06613] transition-all transform hover:scale-[1.02] shadow-lg shadow-orange-500/20 block text-center cursor-pointer"
             >
               Start Now
-            </Link>
+            </a>
             {/* Drawn Arrow Vector */}
             <svg width="55" height="35" viewBox="0 0 76 49" fill="none" className="text-gray-400 stroke-current" strokeWidth="2.5" strokeLinecap="round">
               <path d="M2 39.5C18.5 45.5 49.5 42 68.5 12" />
