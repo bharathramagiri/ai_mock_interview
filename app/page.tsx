@@ -32,12 +32,62 @@ export default function LandingPage() {
         
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-10 text-sm font-semibold text-gray-600">
-          <a href="#pricing" className="hover:text-black transition">Pricing</a>
-          <a href="#services" className="flex items-center space-x-1 hover:text-black transition">
-            <span>Services</span>
-            <span className="text-[10px]">▼</span>
-          </a>
-          <a href="#resources" className="flex items-center space-x-1 hover:text-black transition">
+          <a href="#pricing" className="hover:text-black transition py-4">Pricing</a>
+          
+          {/* Mega Menu Dropdown for Services */}
+          <div className="relative group">
+            <button className="flex items-center space-x-1 hover:text-black transition py-4">
+              <span>Services</span>
+              <span className="text-[10px] transition-transform group-hover:rotate-180">▼</span>
+            </button>
+            
+            {/* Dropdown Container with hover bridge */}
+            <div className="absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 pt-4 w-[850px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 cursor-default">
+              <div className="bg-[#0a0f1c] rounded-2xl shadow-2xl flex overflow-hidden border border-gray-800 text-left">
+                
+                {/* Left Sidebar Menu */}
+                <div className="w-[30%] bg-[#0f172a] p-3 flex flex-col space-y-1">
+                  <div className="px-4 py-3 bg-[#1e293b] rounded-lg text-sm font-semibold flex justify-between items-center cursor-pointer text-[#00eb9b] transition-colors">
+                    <span>AI/ML</span>
+                    <span>›</span>
+                  </div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">CMS</div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">Data and IoT</div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">Developer Tools</div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">Gaming and Media</div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">Hosting</div>
+                  <div className="px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition cursor-pointer text-gray-300">Security and Networking</div>
+                </div>
+
+                {/* Right Content Area */}
+                <div className="w-[70%] p-8 bg-[#0a0f1c]">
+                  <h3 className="text-lg font-bold text-white mb-6">AI/ML</h3>
+                  
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+                    <a href="/interview" className="group/item cursor-pointer block">
+                      <h4 className="text-sm font-semibold text-gray-100 mb-2 group-hover/item:text-[#00eb9b] transition">AI HR Knowledge Assistant</h4>
+                      <p className="text-xs text-gray-400 leading-relaxed">Deploy AI tools developed for Human Resources</p>
+                    </a>
+                    <a href="/interview" className="group/item cursor-pointer block">
+                      <h4 className="text-sm font-semibold text-gray-100 mb-2 group-hover/item:text-[#00eb9b] transition">AI Recommendation Engine</h4>
+                      <p className="text-xs text-gray-400 leading-relaxed">Build tools to personalize user experiences</p>
+                    </a>
+                    <a href="/interview" className="group/item cursor-pointer block">
+                      <h4 className="text-sm font-semibold text-gray-100 mb-2 group-hover/item:text-[#00eb9b] transition">Multimodal AI</h4>
+                      <p className="text-xs text-gray-400 leading-relaxed">Run models that process multiple data types</p>
+                    </a>
+                    <a href="/interview" className="group/item cursor-pointer block">
+                      <h4 className="text-sm font-semibold text-gray-100 mb-2 group-hover/item:text-[#00eb9b] transition">GPU Clusters</h4>
+                      <p className="text-xs text-gray-400 leading-relaxed">GPUs clustered together for large-scale tasks</p>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <a href="#resources" className="flex items-center space-x-1 hover:text-black transition py-4">
             <span>Resources</span>
             <span className="text-[10px]">▼</span>
           </a>
