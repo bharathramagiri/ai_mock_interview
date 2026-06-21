@@ -18,6 +18,7 @@ export default function LandingPage() {
           interview.co
         </div>
         
+        {/* The Left Navigation Links you requested */}
         <nav className="hidden md:flex items-center space-x-10 text-sm font-semibold text-gray-600">
           <Link href="#" className="hover:text-black transition">Pricing</Link>
           <div className="flex items-center space-x-1 cursor-pointer hover:text-black transition">
