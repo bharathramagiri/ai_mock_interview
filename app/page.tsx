@@ -2,6 +2,9 @@ import Link from "next/link";
 import { SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 
+// THIS IS THE FIX: It stops Vercel from freezing the page, ensuring buttons always load!
+export const dynamic = "force-dynamic";
+
 export default function LandingPage() {
   const { userId } = auth();
 
@@ -35,7 +38,7 @@ export default function LandingPage() {
               <UserButton />
             </>
           ) : (
-            <>
+            <div className="flex items-center space-x-4">
               <SignInButton forceRedirectUrl="/interview">
                 <button className="text-sm font-semibold text-gray-700 border border-gray-300 rounded-full px-5 py-2 hover:bg-gray-50 transition">
                   Talent Login
@@ -46,7 +49,7 @@ export default function LandingPage() {
                   Try for free
                 </button>
               </SignInButton>
-            </>
+            </div>
           )}
 
           <div className="flex items-center space-x-1 text-xs font-bold text-gray-500 cursor-pointer">
