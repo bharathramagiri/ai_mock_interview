@@ -52,7 +52,7 @@ export default function LandingPage() {
             </>
           )}
 
-          <div className="flex items-center space-x-1 text-xs font-bold text-gray-500 cursor-pointer">
+          <div className="flex items-center space-x-1 text-xs font-bold text-gray-500 cursor-pointer ml-4">
             <span>EN</span>
             <span className="text-[8px]">▼</span>
           </div>
@@ -90,9 +90,27 @@ export default function LandingPage() {
         <div className="relative flex justify-center items-center">
           <div className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] bg-[#fbbf24] rounded-full -z-10 translate-x-4 translate-y-4"></div>
           
-          <div className="w-[340px] h-[340px] md:w-[420px] md:h-[420px] bg-gray-200 rounded-3xl border-4 border-white shadow-2xl overflow-hidden flex flex-col justify-between p-8 relative">
-            <div className="text-sm font-bold text-gray-400 uppercase tracking-wider">[ Candidate Profile Image & AI Hand Connection ]</div>
-            <div className="absolute top-10 left-6 bg-gray-900 text-white rounded-full p-3 shadow-lg w-10 h-10 flex items-center justify-center font-bold">?</div>
+          <div className="w-[340px] h-[340px] md:w-[420px] md:h-[420px] bg-gray-200 rounded-3xl border-4 border-white shadow-2xl overflow-hidden relative group">
+            {/* Beautiful professional interview stock photo */}
+            <img 
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Candidate taking AI Mock Interview" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            
+            {/* Subtle gradient overlay to make widgets and text pop */}
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
+            
+            {/* AI Badge */}
+            <div className="absolute top-6 left-6 bg-gray-900/90 backdrop-blur-sm text-orange-400 rounded-full shadow-lg w-10 h-10 flex items-center justify-center font-black border border-gray-700/50">
+              AI
+            </div>
+
+            {/* Live Analysis UI element */}
+            <div className="absolute bottom-6 left-6 text-white/90 text-xs font-mono tracking-widest uppercase flex items-center">
+              <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+              Live Tracking Active
+            </div>
           </div>
 
           <div className="absolute bottom-6 right-[-10px] md:right-4 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100 flex flex-col space-y-3 min-w-[180px]">
