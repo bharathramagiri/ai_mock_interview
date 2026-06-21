@@ -87,10 +87,75 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <a href="#resources" className="flex items-center space-x-1 hover:text-black transition py-4">
-            <span>Resources</span>
-            <span className="text-[10px]">▼</span>
-          </a>
+          {/* Mega Menu Dropdown for Resources */}
+          <div className="relative group">
+            <button className="flex items-center space-x-1 hover:text-black transition py-4">
+              <span>Resources</span>
+              <span className="text-[10px] transition-transform group-hover:rotate-180">▼</span>
+            </button>
+            
+            {/* Dropdown Container with hover bridge */}
+            <div className="absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 pt-4 w-[850px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 cursor-default">
+              <div className="bg-[#0a0f1c] rounded-2xl shadow-2xl p-8 border border-gray-800 text-left">
+                <div className="grid grid-cols-3 gap-10">
+                  
+                  {/* EXPLORE Column */}
+                  <div>
+                    <h3 className="text-xs font-bold text-gray-500 tracking-wider uppercase mb-6 border-b border-gray-800 pb-3">Explore</h3>
+                    <div className="space-y-6">
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Wix Blog</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Read the latest industry tips and trends.</p>
+                      </a>
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">All features</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Discover all Wix has to offer for your site and business.</p>
+                      </a>
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Web design inspiration</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Explore designs by other Wix users.</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* SUPPORT Column */}
+                  <div>
+                    <h3 className="text-xs font-bold text-gray-500 tracking-wider uppercase mb-6 border-b border-gray-800 pb-3">Support</h3>
+                    <div className="space-y-6">
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Help Center</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Find the answers and support you need.</p>
+                      </a>
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Hire a professional</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Get expert help with your site & business.</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* TOOLS Column */}
+                  <div>
+                    <h3 className="text-xs font-bold text-gray-500 tracking-wider uppercase mb-6 border-b border-gray-800 pb-3">Tools</h3>
+                    <div className="space-y-6">
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Logo Maker</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Create a custom logo for your brand.</p>
+                      </a>
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Business Name Generator</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Get name ideas for your business.</p>
+                      </a>
+                      <a href="/interview" className="group/item cursor-pointer block">
+                        <h4 className="text-sm font-semibold text-gray-100 mb-1 group-hover/item:text-[#00eb9b] transition">Free business tools</h4>
+                        <p className="text-xs text-gray-400 leading-relaxed">Explore tools to help you run & grow your business.</p>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
 
         <div className="flex items-center space-x-4">
