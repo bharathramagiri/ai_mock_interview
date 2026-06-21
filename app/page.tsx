@@ -1,5 +1,18 @@
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import { 
+  Sparkles, 
+  MessageSquare, 
+  Image as ImageIcon, 
+  Brain, 
+  Mic, 
+  Code, 
+  Search, 
+  Blocks, 
+  TrendingUp, 
+  Rocket, 
+  Infinity 
+} from "lucide-react";
 
 // Force dynamic rendering so the server always checks auth status
 export const dynamic = "force-dynamic";
@@ -9,10 +22,10 @@ export default function LandingPage() {
   const { userId } = auth();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col relative overflow-x-hidden select-none">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col relative overflow-x-hidden select-none scroll-smooth">
       
       {/* Navigation Header */}
-      <header className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-gray-100">
+      <header className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-gray-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div className="text-2xl font-black tracking-tight text-gray-900 cursor-pointer">
           interview.co
         </div>
@@ -132,9 +145,185 @@ export default function LandingPage() {
         </div>
       </main>
 
+      {/* Pricing Section */}
+      <section id="pricing" className="py-24 bg-gray-50/50 border-t border-gray-100 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">Upgrade your plan</h2>
+          
+          {/* Personal / Business Toggle */}
+          <div className="flex justify-center mb-16">
+            <div className="bg-gray-100 p-1 rounded-full inline-flex">
+              <button className="bg-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-sm text-gray-900">Personal</button>
+              <button className="px-6 py-2.5 rounded-full text-sm font-semibold text-gray-500 hover:text-gray-900 transition-colors">Business</button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            
+            {/* Free Tier */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-semibold mb-3 text-gray-900">Free</h3>
+              <div className="flex items-baseline mb-3">
+                <span className="text-4xl font-bold text-gray-900">₹0</span>
+                <span className="text-xs font-medium text-gray-500 ml-2">INR / month</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-8 h-5">See what AI can do</p>
+              
+              <button className="w-full py-3.5 rounded-2xl border border-gray-300 font-semibold text-gray-500 mb-8 cursor-default">
+                Your current plan
+              </button>
+              
+              <ul className="space-y-4 text-sm text-gray-600 flex-1">
+                <li className="flex items-start gap-3">
+                  <Sparkles className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Core model</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <MessageSquare className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Limited messages and uploads</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ImageIcon className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Limited image creation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Brain className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Limited memory</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Go Tier */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-semibold mb-3 text-gray-900">Go</h3>
+              <div className="flex items-baseline mb-3">
+                <span className="text-4xl font-bold text-gray-900">₹399</span>
+                <span className="text-[10px] font-medium text-gray-400 ml-2 leading-tight">INR / month<br/>(inclusive of GST)</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-8 h-5">Keep chatting with expanded access</p>
+              
+              <button className="w-full py-3.5 rounded-2xl bg-gray-900 text-white font-semibold mb-8 hover:bg-gray-800 transition-colors">
+                Upgrade to Go
+              </button>
+              
+              <ul className="space-y-4 text-sm text-gray-600 flex-1">
+                <li className="flex items-start gap-3">
+                  <Sparkles className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Core model</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <MessageSquare className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>More messages and uploads</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ImageIcon className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>More image creation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Brain className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Longer memory</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mic className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Expanded voice mode</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Plus Tier (Popular) */}
+            <div className="bg-[#f4f6ff] border border-indigo-100 rounded-3xl p-8 flex flex-col relative shadow-sm hover:shadow-md transition-shadow">
+              <div className="absolute top-6 right-6 bg-indigo-100/80 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                Popular
+              </div>
+              <h3 className="text-2xl font-semibold mb-3 text-gray-900">Plus</h3>
+              <div className="flex items-baseline mb-3">
+                <span className="text-4xl font-bold text-gray-900">₹1,999</span>
+                <span className="text-[10px] font-medium text-gray-400 ml-2 leading-tight">INR / month<br/>(inclusive of GST)</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-8 h-5">Unlock the full experience</p>
+              
+              <button className="w-full py-3.5 rounded-2xl bg-[#5c5bde] text-white font-semibold mb-8 hover:bg-indigo-600 transition-colors shadow-sm">
+                Upgrade to Plus
+              </button>
+              
+              <ul className="space-y-4 text-sm text-gray-600 flex-1">
+                <li className="flex items-start gap-3">
+                  <Sparkles className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Advanced models</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ImageIcon className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Advanced image creation with Thinking</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Brain className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Expanded memory across chats</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Code className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Codex coding agent</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Search className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Expanded deep research</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Blocks className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Projects and custom GPTs</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Pro Tier */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-semibold mb-1 text-gray-900">Pro</h3>
+              <p className="text-xs font-medium text-gray-400 mb-1">From</p>
+              <div className="flex items-baseline mb-3">
+                <span className="text-4xl font-bold text-gray-900">₹10,699</span>
+                <span className="text-[10px] font-medium text-gray-400 ml-2 leading-tight">INR / month<br/>(inclusive of GST)</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-8 h-5">Maximize your productivity</p>
+              
+              <button className="w-full py-3.5 rounded-2xl bg-gray-900 text-white font-semibold mb-8 hover:bg-gray-800 transition-colors">
+                Upgrade to Pro
+              </button>
+              
+              <ul className="space-y-4 text-sm text-gray-600 flex-1">
+                <li className="font-semibold text-gray-900 mb-1">Everything in Plus and:</li>
+                <li className="flex items-start gap-3">
+                  <TrendingUp className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>5x or 20x more usage than Plus</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Rocket className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Frontier Pro model</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Code className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Maximum access to Codex</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Search className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Maximum deep research</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Infinity className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Unlimited core chat</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ImageIcon className="w-4 h-4 mt-0.5 text-gray-400" />
+                  <span>Unlimited and faster image creation</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Absolute Bottom 3-Steps Dashboard Header Hook */}
-      <section className="bg-gray-50 py-10 border-t border-gray-100 text-center">
-        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-800">
+      <section className="bg-gray-900 py-16 border-t border-gray-800 text-center">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-white">
           Unlock Your Interview Success in 3 Steps!
         </h3>
       </section>
